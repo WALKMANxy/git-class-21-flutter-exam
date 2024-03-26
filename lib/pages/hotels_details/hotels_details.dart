@@ -45,35 +45,74 @@ class HotelDetailsPage extends StatelessWidget {
                   ),
                   const SizedBox(height: 8),
                   ...hotelDetail.rooms
-                      .map((room) => Column(
-                            children: [
-                              ListTile(
-                                contentPadding: const EdgeInsets.all(8),
-                                title: Text(room.type,
-                                    style: const TextStyle(
-                                        fontSize: 18,
-                                        fontWeight: FontWeight.bold)),
-                                leading: ClipRRect(
-                                  borderRadius: BorderRadius.circular(8.0),
-                                  child: Image.network(
-                                    room.image,
-                                    width: 160,
-                                    height: 160,
-                                    fit: BoxFit.cover,
+                      .map((room) => InkWell(
+                            onTap: () {
+                              showDialog(
+                                context: context,
+                                builder: (_) => Dialog(
+                                  child: Image.network(room.image,
+                                      fit: BoxFit.contain),
+                                ),
+                              );
+                            },
+                            child: Card(
+                              margin: const EdgeInsets.all(8.0),
+                              child: Row(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  ClipRRect(
+                                    borderRadius: BorderRadius.circular(8.0),
+                                    child: Image.network(
+                                      room.image,
+                                      width: 120,
+                                      height: 120,
+                                      fit: BoxFit.cover,
+                                    ),
                                   ),
-                                ),
-                                subtitle: Column(
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  children: [
-                                    Text('Max occupants: ${room.adults}'),
-                                    Text('Size of the room: ${room.mq} mq'),
-                                    Text(
-                                        'Price per night: €${room.priceForNight}'),
-                                  ],
-                                ),
+                                  Expanded(
+                                    child: Padding(
+                                      padding: const EdgeInsets.all(8.0),
+                                      child: Column(
+                                        crossAxisAlignment:
+                                            CrossAxisAlignment.start,
+                                        children: [
+                                          Text(
+                                            room.type,
+                                            style: const TextStyle(
+                                                fontSize: 20,
+                                                fontWeight: FontWeight.w600),
+                                          ),
+                                          const SizedBox(height: 4),
+                                          Text(
+                                            'Max occupants: ${room.adults}.',
+                                            style: const TextStyle(
+                                                fontSize: 16,
+                                                fontWeight: FontWeight.w200,
+                                                color: Colors.black),
+                                          ),
+                                          Text(
+                                            'Size of the room: ${room.mq} mq.',
+                                            style: const TextStyle(
+                                                fontSize: 16,
+                                                fontWeight: FontWeight.w200,
+                                                color: Color.fromARGB(
+                                                    255, 26, 26, 26)),
+                                          ),
+                                          Text(
+                                            'Price per night: €${room.priceForNight}.',
+                                            style: const TextStyle(
+                                                fontSize: 16,
+                                                fontWeight: FontWeight.w200,
+                                                color: Color.fromARGB(
+                                                    255, 26, 26, 26)),
+                                          ),
+                                        ],
+                                      ),
+                                    ),
+                                  ),
+                                ],
                               ),
-                              const Divider(),
-                            ],
+                            ),
                           ))
                       .toList(),
                 ],

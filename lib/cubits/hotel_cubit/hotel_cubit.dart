@@ -12,6 +12,8 @@ class HotelsCubit extends Cubit<HotelsState> {
     _fetchHotels();
   }
 
+  int get hotelCount => state.hotels.length;
+
   Future<void> _fetchHotels() async {
     try {
       final response = await http.get(Uri.parse(apiUrl));
