@@ -1,6 +1,6 @@
-import 'package:exercise_4/cubits/hotel_cubit/hotel_cubit.dart';
+import 'package:flutter_exam_damianofrancescoventura/cubits/hotel_cubit/hotel_cubit.dart';
 import 'package:flutter/material.dart';
-import 'package:exercise_4/pages/hotels_page/widgets/hotels_items.dart';
+import 'package:flutter_exam_damianofrancescoventura/pages/hotels_page/widgets/hotels_items.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class HotelsPage extends StatelessWidget {
@@ -8,7 +8,6 @@ class HotelsPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // Watching the HotelsCubit state
     final hotels = context.watch<HotelsCubit>().state.sortedHotels;
 
     return Scaffold(

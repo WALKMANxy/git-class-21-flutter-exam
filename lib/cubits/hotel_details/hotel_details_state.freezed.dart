@@ -20,7 +20,7 @@ mixin _$HotelDetailsState {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(HotelDetail hotelDetail) success,
+    required TResult Function(HotelDetail hotelDetail, Hotel hotel) success,
     required TResult Function(String message) error,
   }) =>
       throw _privateConstructorUsedError;
@@ -28,7 +28,7 @@ mixin _$HotelDetailsState {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(HotelDetail hotelDetail)? success,
+    TResult? Function(HotelDetail hotelDetail, Hotel hotel)? success,
     TResult? Function(String message)? error,
   }) =>
       throw _privateConstructorUsedError;
@@ -36,7 +36,7 @@ mixin _$HotelDetailsState {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(HotelDetail hotelDetail)? success,
+    TResult Function(HotelDetail hotelDetail, Hotel hotel)? success,
     TResult Function(String message)? error,
     required TResult orElse(),
   }) =>
@@ -126,7 +126,7 @@ class _$InitialImpl implements _Initial {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(HotelDetail hotelDetail) success,
+    required TResult Function(HotelDetail hotelDetail, Hotel hotel) success,
     required TResult Function(String message) error,
   }) {
     return initial();
@@ -137,7 +137,7 @@ class _$InitialImpl implements _Initial {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(HotelDetail hotelDetail)? success,
+    TResult? Function(HotelDetail hotelDetail, Hotel hotel)? success,
     TResult? Function(String message)? error,
   }) {
     return initial?.call();
@@ -148,7 +148,7 @@ class _$InitialImpl implements _Initial {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(HotelDetail hotelDetail)? success,
+    TResult Function(HotelDetail hotelDetail, Hotel hotel)? success,
     TResult Function(String message)? error,
     required TResult orElse(),
   }) {
@@ -240,7 +240,7 @@ class _$LoadingImpl implements _Loading {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(HotelDetail hotelDetail) success,
+    required TResult Function(HotelDetail hotelDetail, Hotel hotel) success,
     required TResult Function(String message) error,
   }) {
     return loading();
@@ -251,7 +251,7 @@ class _$LoadingImpl implements _Loading {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(HotelDetail hotelDetail)? success,
+    TResult? Function(HotelDetail hotelDetail, Hotel hotel)? success,
     TResult? Function(String message)? error,
   }) {
     return loading?.call();
@@ -262,7 +262,7 @@ class _$LoadingImpl implements _Loading {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(HotelDetail hotelDetail)? success,
+    TResult Function(HotelDetail hotelDetail, Hotel hotel)? success,
     TResult Function(String message)? error,
     required TResult orElse(),
   }) {
@@ -320,9 +320,10 @@ abstract class _$$SuccessImplCopyWith<$Res> {
           _$SuccessImpl value, $Res Function(_$SuccessImpl) then) =
       __$$SuccessImplCopyWithImpl<$Res>;
   @useResult
-  $Res call({HotelDetail hotelDetail});
+  $Res call({HotelDetail hotelDetail, Hotel hotel});
 
   $HotelDetailCopyWith<$Res> get hotelDetail;
+  $HotelCopyWith<$Res> get hotel;
 }
 
 /// @nodoc
@@ -337,12 +338,17 @@ class __$$SuccessImplCopyWithImpl<$Res>
   @override
   $Res call({
     Object? hotelDetail = null,
+    Object? hotel = null,
   }) {
     return _then(_$SuccessImpl(
       null == hotelDetail
           ? _value.hotelDetail
           : hotelDetail // ignore: cast_nullable_to_non_nullable
               as HotelDetail,
+      null == hotel
+          ? _value.hotel
+          : hotel // ignore: cast_nullable_to_non_nullable
+              as Hotel,
     ));
   }
 
@@ -353,19 +359,29 @@ class __$$SuccessImplCopyWithImpl<$Res>
       return _then(_value.copyWith(hotelDetail: value));
     });
   }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $HotelCopyWith<$Res> get hotel {
+    return $HotelCopyWith<$Res>(_value.hotel, (value) {
+      return _then(_value.copyWith(hotel: value));
+    });
+  }
 }
 
 /// @nodoc
 
 class _$SuccessImpl implements _Success {
-  const _$SuccessImpl(this.hotelDetail);
+  const _$SuccessImpl(this.hotelDetail, this.hotel);
 
   @override
   final HotelDetail hotelDetail;
+  @override
+  final Hotel hotel;
 
   @override
   String toString() {
-    return 'HotelDetailsState.success(hotelDetail: $hotelDetail)';
+    return 'HotelDetailsState.success(hotelDetail: $hotelDetail, hotel: $hotel)';
   }
 
   @override
@@ -374,11 +390,12 @@ class _$SuccessImpl implements _Success {
         (other.runtimeType == runtimeType &&
             other is _$SuccessImpl &&
             (identical(other.hotelDetail, hotelDetail) ||
-                other.hotelDetail == hotelDetail));
+                other.hotelDetail == hotelDetail) &&
+            (identical(other.hotel, hotel) || other.hotel == hotel));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, hotelDetail);
+  int get hashCode => Object.hash(runtimeType, hotelDetail, hotel);
 
   @JsonKey(ignore: true)
   @override
@@ -391,10 +408,10 @@ class _$SuccessImpl implements _Success {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(HotelDetail hotelDetail) success,
+    required TResult Function(HotelDetail hotelDetail, Hotel hotel) success,
     required TResult Function(String message) error,
   }) {
-    return success(hotelDetail);
+    return success(hotelDetail, hotel);
   }
 
   @override
@@ -402,10 +419,10 @@ class _$SuccessImpl implements _Success {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(HotelDetail hotelDetail)? success,
+    TResult? Function(HotelDetail hotelDetail, Hotel hotel)? success,
     TResult? Function(String message)? error,
   }) {
-    return success?.call(hotelDetail);
+    return success?.call(hotelDetail, hotel);
   }
 
   @override
@@ -413,12 +430,12 @@ class _$SuccessImpl implements _Success {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(HotelDetail hotelDetail)? success,
+    TResult Function(HotelDetail hotelDetail, Hotel hotel)? success,
     TResult Function(String message)? error,
     required TResult orElse(),
   }) {
     if (success != null) {
-      return success(hotelDetail);
+      return success(hotelDetail, hotel);
     }
     return orElse();
   }
@@ -462,9 +479,11 @@ class _$SuccessImpl implements _Success {
 }
 
 abstract class _Success implements HotelDetailsState {
-  const factory _Success(final HotelDetail hotelDetail) = _$SuccessImpl;
+  const factory _Success(final HotelDetail hotelDetail, final Hotel hotel) =
+      _$SuccessImpl;
 
   HotelDetail get hotelDetail;
+  Hotel get hotel;
   @JsonKey(ignore: true)
   _$$SuccessImplCopyWith<_$SuccessImpl> get copyWith =>
       throw _privateConstructorUsedError;
@@ -536,7 +555,7 @@ class _$ErrorImpl implements _Error {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(HotelDetail hotelDetail) success,
+    required TResult Function(HotelDetail hotelDetail, Hotel hotel) success,
     required TResult Function(String message) error,
   }) {
     return error(message);
@@ -547,7 +566,7 @@ class _$ErrorImpl implements _Error {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(HotelDetail hotelDetail)? success,
+    TResult? Function(HotelDetail hotelDetail, Hotel hotel)? success,
     TResult? Function(String message)? error,
   }) {
     return error?.call(message);
@@ -558,7 +577,7 @@ class _$ErrorImpl implements _Error {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(HotelDetail hotelDetail)? success,
+    TResult Function(HotelDetail hotelDetail, Hotel hotel)? success,
     TResult Function(String message)? error,
     required TResult orElse(),
   }) {

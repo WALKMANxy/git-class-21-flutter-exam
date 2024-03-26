@@ -1,5 +1,5 @@
 import 'package:collection/collection.dart';
-import 'package:exercise_4/model/hotel_list.dart';
+import 'package:flutter_exam_damianofrancescoventura/model/hotel_list.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 part 'hotel_state.freezed.dart';
 

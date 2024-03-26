@@ -1,5 +1,5 @@
-import 'package:exercise_4/cubits/hotel_cubit/hotel_state.dart';
-import 'package:exercise_4/model/hotel_list.dart';
+import 'package:flutter_exam_damianofrancescoventura/cubits/hotel_cubit/hotel_state.dart';
+import 'package:flutter_exam_damianofrancescoventura/model/hotel_list.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert';

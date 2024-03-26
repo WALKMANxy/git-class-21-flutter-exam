@@ -1,8 +1,9 @@
-import 'package:exercise_4/cubits/hotel_cubit/hotel_cubit.dart';
-import 'package:exercise_4/cubits/hotel_details/hotel_details_cubit.dart';
-import 'package:exercise_4/pages/hotels_details/hotels_details.dart';
-import 'package:exercise_4/pages/hotels_page/hotels_page.dart';
+import 'package:flutter_exam_damianofrancescoventura/cubits/hotel_cubit/hotel_cubit.dart';
+import 'package:flutter_exam_damianofrancescoventura/cubits/hotel_details/hotel_details_cubit.dart';
+import 'package:flutter_exam_damianofrancescoventura/pages/hotels_details/hotels_details.dart';
+import 'package:flutter_exam_damianofrancescoventura/pages/hotels_page/hotels_page.dart';
 import 'package:flutter/material.dart';
+
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 
